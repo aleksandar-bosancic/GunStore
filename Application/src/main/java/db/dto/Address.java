@@ -1,18 +1,10 @@
 package db.dto;
 
 public class Address {
-    private int idAddress;
+    private int id;
     private String city;
     private String street;
     private int number;
-
-    public int getIdAddress() {
-        return idAddress;
-    }
-
-    public void setIdAddress(int idAddress) {
-        this.idAddress = idAddress;
-    }
 
     public String getCity() {
         return city;
@@ -36,5 +28,13 @@ public class Address {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
