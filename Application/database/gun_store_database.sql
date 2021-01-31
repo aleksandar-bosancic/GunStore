@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema gun_store_database
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `gun_store_database` ;
 
 -- -----------------------------------------------------
 -- Schema gun_store_database
@@ -94,12 +95,12 @@ ENGINE = InnoDB;
 -- Table `gun_store_database`.`Sport_Pistol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Sport_Pistol` (
-  `Pistol_id_item` INT NOT NULL,
+  `item_id` INT NOT NULL,
   `muzzle_velocity` INT NOT NULL,
   `range` INT NOT NULL,
-  PRIMARY KEY (`Pistol_id_item`),
+  PRIMARY KEY (`item_id`),
   CONSTRAINT `fk_Sport_Pistol_Pistol1`
-    FOREIGN KEY (`Pistol_id_item`)
+    FOREIGN KEY (`item_id`)
     REFERENCES `gun_store_database`.`Pistol` (`item_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -225,11 +226,11 @@ ENGINE = InnoDB;
 -- Table `gun_store_database`.`Address`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Address` (
-  `idAddress` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `city` VARCHAR(45) NOT NULL,
   `street` VARCHAR(45) NOT NULL,
   `number` INT NOT NULL,
-  PRIMARY KEY (`idAddress`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -239,10 +240,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Employee` (
   `person_id` INT NOT NULL,
   `address_id` INT NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `employee_username` VARCHAR(45) NOT NULL,
+  `employee_password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`person_id`),
   INDEX `fk_Employee_Address1_idx` (`address_id` ASC) VISIBLE,
+  UNIQUE INDEX `employee_username_UNIQUE` (`employee_username` ASC) VISIBLE,
   CONSTRAINT `fk_Employee_Person1`
     FOREIGN KEY (`person_id`)
     REFERENCES `gun_store_database`.`Person` (`id`)
@@ -250,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `gun_store_database`.`Employee` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Employee_Address1`
     FOREIGN KEY (`address_id`)
-    REFERENCES `gun_store_database`.`Address` (`idAddress`)
+    REFERENCES `gun_store_database`.`Address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -261,16 +263,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Buyer` (
   `person_id` INT NOT NULL,
-  `Firearm_Permit_id` VARCHAR(45) NOT NULL,
+  `firearm_permit_id` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`person_id`),
-  INDEX `fk_Buyer_Firearm_Permit1_idx` (`Firearm_Permit_id` ASC) VISIBLE,
+  INDEX `fk_Buyer_Firearm_Permit1_idx` (`firearm_permit_id` ASC) VISIBLE,
   CONSTRAINT `fk_Buyer_Person1`
     FOREIGN KEY (`person_id`)
     REFERENCES `gun_store_database`.`Person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Buyer_Firearm_Permit1`
-    FOREIGN KEY (`Firearm_Permit_id`)
+    FOREIGN KEY (`firearm_permit_id`)
     REFERENCES `gun_store_database`.`Firearm_Permit` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -299,20 +301,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Receipt` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Employee_Person_id` INT NOT NULL,
-  `Buyer_Person_id` INT NOT NULL,
+  `employee_id` INT NOT NULL,
+  `buyer_id` INT NOT NULL,
   `date_time` DATETIME NOT NULL,
   `total_price` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Receipt_Employee1_idx` (`Employee_Person_id` ASC) VISIBLE,
-  INDEX `fk_Receipt_Buyer1_idx` (`Buyer_Person_id` ASC) VISIBLE,
+  INDEX `fk_Receipt_Employee1_idx` (`employee_id` ASC) VISIBLE,
+  INDEX `fk_Receipt_Buyer1_idx` (`buyer_id` ASC) VISIBLE,
   CONSTRAINT `fk_Receipt_Employee1`
-    FOREIGN KEY (`Employee_Person_id`)
+    FOREIGN KEY (`employee_id`)
     REFERENCES `gun_store_database`.`Employee` (`person_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Receipt_Buyer1`
-    FOREIGN KEY (`Buyer_Person_id`)
+    FOREIGN KEY (`buyer_id`)
     REFERENCES `gun_store_database`.`Buyer` (`person_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -331,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `gun_store_database`.`Supplier` (
   INDEX `fk_Supplier_Address1_idx` (`address_id` ASC) VISIBLE,
   CONSTRAINT `fk_Supplier_Address1`
     FOREIGN KEY (`address_id`)
-    REFERENCES `gun_store_database`.`Address` (`idAddress`)
+    REFERENCES `gun_store_database`.`Address` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -341,19 +343,19 @@ ENGINE = InnoDB;
 -- Table `gun_store_database`.`Phone_Number`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Phone_Number` (
-  `Person_id` INT NOT NULL,
-  `Phone_Number` VARCHAR(45) NOT NULL,
-  `Supplier_id` INT NOT NULL,
-  INDEX `fk_Phone_Number_Person1_idx` (`Person_id` ASC) VISIBLE,
-  PRIMARY KEY (`Phone_Number`),
-  INDEX `fk_Phone_Number_Supplier1_idx` (`Supplier_id` ASC) VISIBLE,
+  `person_id` INT NOT NULL,
+  `phone_number` VARCHAR(45) NOT NULL,
+  `supplier_id` INT NOT NULL,
+  INDEX `fk_Phone_Number_Person1_idx` (`person_id` ASC) VISIBLE,
+  PRIMARY KEY (`phone_number`),
+  INDEX `fk_Phone_Number_Supplier1_idx` (`supplier_id` ASC) VISIBLE,
   CONSTRAINT `fk_Phone_Number_Person1`
-    FOREIGN KEY (`Person_id`)
+    FOREIGN KEY (`person_id`)
     REFERENCES `gun_store_database`.`Person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Phone_Number_Supplier1`
-    FOREIGN KEY (`Supplier_id`)
+    FOREIGN KEY (`supplier_id`)
     REFERENCES `gun_store_database`.`Supplier` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
