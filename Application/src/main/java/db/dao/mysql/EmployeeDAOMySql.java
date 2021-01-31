@@ -37,12 +37,14 @@ public class EmployeeDAOMySql implements EmployeeDAO {
 
     @Override
     public boolean createEmployee(Employee employee) throws SQLException {
-        String query = "update Employee set employee_username=?, employee_password=? where person_id=?";
+        String query = "insert into Employee(person_id, address_id, employee_username, employee_password) "
+                + "values(?, ?, ?, ?)";
         Connection connection = ConnectionPool.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setString(1, employee.getEmployeeUsername());
-        preparedStatement.setString(2, employee.getEmployeePassword());
-        preparedStatement.setInt(3, employee.getPersonId());
+        preparedStatement.setInt(1, employee.getPersonId());
+        preparedStatement.setInt(2, employee.getAddress().getId());
+        preparedStatement.setString(3, employee.getEmployeeUsername());
+        preparedStatement.setString(4, employee.getEmployeePassword());
         boolean status = preparedStatement.execute();
         ConnectionPool.releaseConnection(connection);
         return status;
