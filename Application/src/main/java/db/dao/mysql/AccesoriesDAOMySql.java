@@ -81,7 +81,7 @@ public class AccesoriesDAOMySql implements AccesoriesDAO {
 
     @Override
     public boolean deleteAccesories(int id) throws SQLException {
-        String query = "delete from Accesories where id=?";
+        String query = "delete from Accesories where item_id=?";
         Connection connection = ConnectionPool.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, id);
