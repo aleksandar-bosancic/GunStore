@@ -1,4 +1,4 @@
-INSERT INTO Person VALUES (0, "Vladislav", "Slaninov"),
+firearm_permitINSERT INTO Person VALUES (0, "Vladislav", "Slaninov"),
 						  (0, "Rebecca", "L'Orient"),
 						  (0, "Shaquille ", "O'Neil"),
                           (0, "John Ronald Reuel", "Tolkein");
