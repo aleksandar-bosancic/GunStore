@@ -5,10 +5,7 @@ import db.dao.ReceiptDAO;
 import db.dto.Address;
 import db.dto.Receipt;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ReceiptDAOMySql implements ReceiptDAO {
@@ -37,12 +34,26 @@ public class ReceiptDAOMySql implements ReceiptDAO {
         String query = "insert into Receipt(employee_id, buyer_id, date_time, total_price)"
                 + "values(?, ?, ?, ?)";
         Connection connection = ConnectionPool.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setInt(1, receipt.getEmployee().getPersonId());
-        preparedStatement.setInt(2, receipt.getBuyer().getPersonId());
+        if(receipt.getBuyer() == null) {
+            preparedStatement.setNull(2, Types.INTEGER);
+        } else {
+            preparedStatement.setInt(2, receipt.getBuyer().getPersonId());
+        }
         preparedStatement.setDate(3, new java.sql.Date(receipt.getDateTime().getTime()));
         preparedStatement.setDouble(4, receipt.getTotalPrice());
-        boolean status = preparedStatement.execute();
+        boolean status = preparedStatement.executeUpdate() == 1;
+        var rs = preparedStatement.getGeneratedKeys();
+
+        if (rs.next()) {
+             int autoIncKeyFromApi = rs.getInt(1);
+             receipt.setId(autoIncKeyFromApi);
+             rs.close();
+        } else {
+
+            // throw an exception from here
+        }
         ConnectionPool.releaseConnection(connection);
         return status;
     }
@@ -60,7 +71,7 @@ public class ReceiptDAOMySql implements ReceiptDAO {
 
     @Override
     public boolean updateReceipt(Receipt receipt) throws SQLException {
-        String query = "update Receipt set employee_id=?, buyer_id=?, date_time=?, total_price where id=?";
+        String query = "update Receipt set employee_id=?, buyer_id=?, date_time=?, total_price=? where id=?";
         Connection connection = ConnectionPool.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, receipt.getEmployee().getPersonId());

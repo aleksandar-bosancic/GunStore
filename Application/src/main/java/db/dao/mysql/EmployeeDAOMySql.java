@@ -2,16 +2,23 @@ package db.dao.mysql;
 
 import db.connection.ConnectionPool;
 import db.dao.EmployeeDAO;
-import db.dto.Accesories;
 import db.dto.Employee;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDAOMySql implements EmployeeDAO {
+    @Override
+    public boolean login(String employeeUsername, String employeePassword)  throws SQLException{
+        String query = "{call login_procedure(?, ?, ?)}";
+        Connection connection = ConnectionPool.getConnection();
+        CallableStatement callableStatement = connection.prepareCall(query);
+        callableStatement.setString(1, employeeUsername);
+        callableStatement.setString(2, employeePassword);
+        callableStatement.execute();
+        return callableStatement.getBoolean(3);
+    }
+
     @Override
     public ArrayList<Employee> GetAll() throws SQLException {
         ArrayList<Employee> toReturn = new ArrayList<>();
@@ -51,6 +58,17 @@ public class EmployeeDAOMySql implements EmployeeDAO {
     }
 
     @Override
+    public Employee readEmployee(String username) throws SQLException {
+        ArrayList<Employee> employees = this.GetAll();
+        for(Employee employee : employees){
+            if(employee.getEmployeeUsername().equals(username)){
+                return employee;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public Employee readEmployee(int id) throws SQLException {
         ArrayList<Employee> employees = this.GetAll();
         for(Employee employee : employees){
@@ -77,7 +95,7 @@ public class EmployeeDAOMySql implements EmployeeDAO {
 
     @Override
     public boolean deleteEmployee(int id) throws SQLException {
-        String query = "delete from Employee where id=?";
+        String query = "delete from Employee where person_id=?";
         Connection connection = ConnectionPool.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, id);

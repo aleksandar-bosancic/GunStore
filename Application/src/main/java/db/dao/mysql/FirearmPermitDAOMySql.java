@@ -5,13 +5,31 @@ import db.dao.FirearmPermitDAO;
 import db.dto.FirearmPermit;
 import db.dto.Item;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class FirearmPermitDAOMySql implements FirearmPermitDAO {
+
+    @Override
+    public boolean checkFirearmPermit(int personId) throws SQLException{
+        String query = "{call check_firearm_permit(?, ?)}";
+        Connection connection = ConnectionPool.getConnection();
+        CallableStatement callableStatement = connection.prepareCall(query);
+        callableStatement.setInt(1, personId);
+        callableStatement.execute();
+        return callableStatement.getBoolean(2);
+    }
+
+    @Override
+    public boolean requiresPermit(int itemId) throws SQLException{
+        String query = "{call requires_permit(?, ?)}";
+        Connection connection = ConnectionPool.getConnection();
+        CallableStatement callableStatement = connection.prepareCall(query);
+        callableStatement.setInt(1, itemId);
+        callableStatement.execute();
+        return callableStatement.getBoolean(2);
+    }
+
     @Override
     public ArrayList<FirearmPermit> GetAll() throws SQLException {
         ArrayList<FirearmPermit> toReturn = new ArrayList<>();

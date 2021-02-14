@@ -6,6 +6,16 @@ public class ReceiptHasItem {
     private int amount;
     private double itemPrice;
 
+
+
+    public String getManufacturer() {
+        return item.getManufacturer();
+    }
+
+    public String getModel() {
+        return item.getModel();
+    }
+
     public Receipt getReceipt() {
         return receipt;
     }

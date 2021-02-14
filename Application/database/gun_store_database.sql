@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `gun_store_database`.`Item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `manufacturer` VARCHAR(45) NOT NULL,
   `model` VARCHAR(45) NOT NULL,
-  `price` DOUBLE(5,2) NOT NULL,
+  `price` DOUBLE(10,2) NOT NULL,
   `in_stock` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -204,7 +204,7 @@ ENGINE = InnoDB;
 -- Table `gun_store_database`.`Firearm_Permit`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Firearm_Permit` (
-  `id` VARCHAR(45) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `issue_date` DATE NOT NULL,
   `expiration_date` DATE NOT NULL,
   PRIMARY KEY (`id`))
@@ -263,7 +263,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Buyer` (
   `person_id` INT NOT NULL,
-  `firearm_permit_id` VARCHAR(45) NOT NULL,
+  `firearm_permit_id` INT NULL,
   PRIMARY KEY (`person_id`),
   INDEX `fk_Buyer_Firearm_Permit1_idx` (`firearm_permit_id` ASC) VISIBLE,
   CONSTRAINT `fk_Buyer_Person1`
@@ -302,7 +302,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `gun_store_database`.`Receipt` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `employee_id` INT NOT NULL,
-  `buyer_id` INT NOT NULL,
+  `buyer_id` INT NULL,
   `date_time` DATETIME NOT NULL,
   `total_price` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),

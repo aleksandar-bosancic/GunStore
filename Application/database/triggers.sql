@@ -16,6 +16,7 @@ delimiter ;
 delimiter $$
 CREATE TRIGGER `update_total_price` AFTER INSERT ON `Receipt_has_Item` FOR EACH ROW
 BEGIN
-	UPDATE Reciept SET Receipt.total_price = Receipt.total_price + (NEW.ammount * NEW.item_price) WHERE Receipt.id = NEW.receipt_id;
+	UPDATE receipt SET Receipt.total_price = Receipt.total_price + (NEW.ammount * NEW.item_price) WHERE Receipt.id = NEW.receipt_id;
+	UPDATE item SET item.in_stock = item.in_stock - new.ammount WHERE item.id = NEW.item_id;
 END$$
 delimiter ;
