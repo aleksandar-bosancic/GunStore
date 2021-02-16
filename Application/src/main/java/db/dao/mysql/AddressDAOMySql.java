@@ -5,10 +5,7 @@ import db.dao.AddressDAO;
 import db.dto.Address;
 import db.dto.Person;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AddressDAOMySql implements AddressDAO {
@@ -36,11 +33,19 @@ public class AddressDAOMySql implements AddressDAO {
         String query = "insert into Address(city, street, number)"
                 + "values(?, ?, ?)";
         Connection connection = ConnectionPool.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, address.getCity());
         preparedStatement.setString(2, address.getStreet());
         preparedStatement.setInt(3, address.getNumber());
-        boolean status = preparedStatement.execute();
+        boolean status = preparedStatement.executeUpdate() == 1;
+        var rs = preparedStatement.getGeneratedKeys();
+        if (rs.next()) {
+            int autoIncKeyFromApi = rs.getInt(1);
+            address.setId(autoIncKeyFromApi);
+            rs.close();
+        } else {
+
+        }
         ConnectionPool.releaseConnection(connection);
         return status;
     }

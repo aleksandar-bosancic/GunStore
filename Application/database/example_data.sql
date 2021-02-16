@@ -2,17 +2,20 @@ INSERT INTO Person VALUES (0, "Vladislav", "Slaninov"),
 						  (0, "Rebecca", "L'Orient"),
 						  (0, "Shaquille ", "O'Neil"),
                           (0, "John Ronald Reuel", "Tolkein"),
-                          (0, "Elon Musk", "Meme Lord");
-INSERT INTO Address VALUES (0, "Chikago", "S Lombard Ave", "39"),
-						   (0, "London", "St James Street", "101"),
-                           (0, "Paris", "Rue De Varenne", "309"),
-                           (0, "Moscow", "Brysuov Lane", "1069"),
-                           (0, "Los Angeles", "Deer Creek", "3500");
+                          (0, "Elon Musk", "Meme Lord"),
+                          (0, "Joakim", "Borden");
+INSERT INTO Address VALUES (0, "Chikago", "S Lombard Ave", 39),
+						   (0, "London", "St James Street", 101),
+                           (0, "Paris", "Rue De Varenne", 309),
+                           (0, "Moscow", "Brysuov Lane", 1069),
+                           (0, "Los Angeles", "Deer Creek", 3500),
+                           (0, "Falun", "Sturegatan", 7734);
 INSERT INTO Firearm_Permit VALUES (0, "2017-06-15", "2022-06-15"),
 								  (0, "1892-03-01", "2292-03-01"),
                                   (0, "2017-03-12", "2020-01-02");
 INSERT INTO Employee VALUES (2, 3, "l_rebecca", "magic111"),
-							(3, 1, "s_oneil", "magic222");
+							(3, 1, "s_oneil", "magic222"),
+                            (6, 6, "sabaton", "sabaton");
 INSERT INTO Buyer VALUES (1, 1),
 						 (4, 2),
                          (5, 3);
@@ -62,3 +65,8 @@ insert into accesories VALUES (10,"black", "Balistic Vest", "Armour"),
                               (17, "Desert Camo", "Bandana", "Headgear"),
                               (18, "Black", "Fire Starter", "Miscellaneous");
 
+select * from person;
+select * from `employee`;
+insert into person value (0, "Elon Musk", "Meme Lord");
+insert into buyer value (7,3);
+delete from address where id = 18;

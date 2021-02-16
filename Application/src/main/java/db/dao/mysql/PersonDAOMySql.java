@@ -5,10 +5,7 @@ import db.dao.PersonDAO;
 import db.dto.Item;
 import db.dto.Person;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class PersonDAOMySql implements PersonDAO {
@@ -35,10 +32,18 @@ public class PersonDAOMySql implements PersonDAO {
         String query = "insert into Person(first_name, last_name)"
                 + "values(?, ?)";
         Connection connection = ConnectionPool.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, person.getFirstName());
         preparedStatement.setString(2, person.getLastName());
-        boolean status = preparedStatement.execute();
+        boolean status = preparedStatement.executeUpdate() == 1;
+        var rs = preparedStatement.getGeneratedKeys();
+        if (rs.next()) {
+            int autoIncKeyFromApi = rs.getInt(1);
+            person.setPersonId(autoIncKeyFromApi);
+            rs.close();
+        } else {
+            // throw an exception from here
+        }
         ConnectionPool.releaseConnection(connection);
         return status;
     }

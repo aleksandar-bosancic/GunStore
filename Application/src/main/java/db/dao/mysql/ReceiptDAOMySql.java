@@ -45,7 +45,6 @@ public class ReceiptDAOMySql implements ReceiptDAO {
         preparedStatement.setDouble(4, receipt.getTotalPrice());
         boolean status = preparedStatement.executeUpdate() == 1;
         var rs = preparedStatement.getGeneratedKeys();
-
         if (rs.next()) {
              int autoIncKeyFromApi = rs.getInt(1);
              receipt.setId(autoIncKeyFromApi);

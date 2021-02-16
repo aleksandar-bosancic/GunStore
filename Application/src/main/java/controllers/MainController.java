@@ -1,5 +1,6 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.dao.mysql.FirearmPermitDAOMySql;
 import db.dao.mysql.ItemDAOMySql;
@@ -10,11 +11,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.converter.IntegerStringConverter;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.Instant;
@@ -35,6 +41,9 @@ public class MainController {
     private Employee loggedInEmployee = new Employee();
 
     @FXML
+    public AnchorPane mainSceneAnchor;
+
+    @FXML
     private JFXTextField personIdTextField;
 
     @FXML
@@ -48,6 +57,9 @@ public class MainController {
 
     @FXML
     public Label totalPriceLabel;
+
+    @FXML
+    public JFXButton employees;
 
     @FXML
     private void initialize() {
@@ -174,4 +186,21 @@ public class MainController {
         System.exit(0);
     }
 
+    public void startEmployeesScene(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Employees_scene.fxml"));
+        try {
+            loader.load();
+            Parent root = loader.getRoot();
+            Scene employeeScene = new Scene(root);
+            Stage employeeStage = new Stage();
+            employeeStage.setScene(employeeScene);
+            employeeStage.initStyle(StageStyle.UNDECORATED);
+            employeeStage.setAlwaysOnTop(true);
+            mainSceneAnchor.setDisable(true);
+            employeeStage.showAndWait();
+            mainSceneAnchor.setDisable(false);
+        } catch (IOException ioException){
+            ioException.printStackTrace();
+        }
+    }
 }
