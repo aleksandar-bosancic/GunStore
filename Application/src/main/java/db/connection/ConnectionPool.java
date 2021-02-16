@@ -47,7 +47,7 @@ public class ConnectionPool {
             boolean[] tempConnectionsTaken = new boolean[currentConnections * 2];
             for(int i = 0; i < currentConnections * 2; i++) {
                 tempConnections[i] = (i < currentConnections)?connections[i]:DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD);
-                tempConnectionsTaken[i] = (i < currentConnections)?connectionTaken[i]:false;
+                tempConnectionsTaken[i] = i < currentConnections && connectionTaken[i];
             }
             availableConnections = currentConnections;
             connections = tempConnections;

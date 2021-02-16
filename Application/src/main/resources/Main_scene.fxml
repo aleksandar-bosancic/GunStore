@@ -11,13 +11,13 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #0E3B43;" stylesheets="dividerStyle.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane maxHeight="768.0" maxWidth="1366.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #0E3B43;" stylesheets="Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <SplitPane fx:id="splitPane" dividerPositions="0.7" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #0E3B43;" styleClass="split-pane-divider" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane fx:id="splitPane" dividerPositions="0.7" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #0E3B43;" styleClass="split-pane-divider" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <items>
         <AnchorPane prefHeight="576.0" prefWidth="551.0" style="-fx-background-color: #0E3B43;">
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
               <font>
                 <Font size="18.0" fx:id="x1" />
               </font>
@@ -27,27 +27,27 @@
             </Label>
               <TableView fx:id="mainTable" layoutX="5.0" layoutY="41.0" prefHeight="615.0" prefWidth="941.0" style="-fx-background-color: #0E3B43;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
                  <columns>
-                     <TableColumn prefWidth="75.0" text="id">
+                     <TableColumn minWidth="75.0" prefWidth="75.0" text="id">
                          <cellValueFactory>
                              <PropertyValueFactory property="id" />
                          </cellValueFactory>
                      </TableColumn>
-                    <TableColumn prefWidth="75.0" text="Manufacturer">
+                    <TableColumn minWidth="200.0" prefWidth="75.0" text="Manufacturer">
                         <cellValueFactory>
                             <PropertyValueFactory property="Manufacturer" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn prefWidth="75.0" text="Model">
+                    <TableColumn minWidth="200.0" prefWidth="75.0" text="Model">
                         <cellValueFactory>
                             <PropertyValueFactory property="Model" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn prefWidth="75.0" text="In Stock">
+                    <TableColumn minWidth="75.0" prefWidth="75.0" style="-fx-text-alignment: center" text="In Stock">
                         <cellValueFactory>
                             <PropertyValueFactory property="in_stock" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn prefWidth="75.0" text="Price">
+                    <TableColumn minWidth="200.0" prefWidth="75.0" text="Price">
                         <cellValueFactory>
                             <PropertyValueFactory property="Price" />
                         </cellValueFactory>
@@ -58,15 +58,16 @@
                      </columnResizePolicy>
               </TableView>
                   <JFXButton fx:id="insert" layoutX="10.0" layoutY="672.0" onAction="#addOnReceipt" style="-fx-background-color: #357266; -fx-text-fill: #EEF9FB;" text="Add" textAlignment="CENTER" textFill="#a3bbad" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" />
-                  <JFXTextField fx:id="amountTextField" layoutX="74.0" layoutY="672.0" prefHeight="32.0" prefWidth="54.0" style="-fx-text-fill: #a3bbad;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="74.0" />
-                  <JFXTextField fx:id="personIdTextField" layoutX="122.0" layoutY="727.0" prefHeight="32.0" prefWidth="152.0" style="-fx-text-fill: #a3bbad;" AnchorPane.bottomAnchor="10.0" />
+                  <JFXTextField fx:id="amountTextField" focusColor="#a3bbad" layoutX="144.0" layoutY="674.0" prefHeight="32.0" prefWidth="54.0" style="-fx-text-fill: #a3bbad" unFocusColor="#357266" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="144.0" />
+                  <JFXTextField fx:id="personIdTextField" focusColor="#a3bbad" layoutX="122.0" layoutY="727.0" prefHeight="32.0" prefWidth="152.0" style="-fx-text-fill: #a3bbad" unFocusColor="#357266" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="122.0" />
                   <Label layoutX="11.0" layoutY="726.0" prefHeight="32.0" prefWidth="112.0" style="-fx-text-fill: #b9cbc0;" text="Person ID: " textFill="#b9cbc0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+                  <Label layoutX="74.0" layoutY="681.0" style="-fx-text-fill: #B9CBC0;" text="Amount" textFill="#b9cbc0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="74.0" />
           </children>
         </AnchorPane>
         <AnchorPane prefHeight="593.0" prefWidth="222.0" style="-fx-background-color: #0E3B43;">
           <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <TableView fx:id="receiptTable" layoutX="70.0" layoutY="41.0" prefHeight="626.0" prefWidth="405.0" style="-fx-background-color: #0E3B43;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
+            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                  <TableView fx:id="receiptTable" layoutX="70.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="405.0" style="-fx-background-color: #0E3B43;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Manufacturer">
                           <cellValueFactory>
@@ -93,9 +94,14 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Label layoutX="251.0" layoutY="662.0" prefHeight="32.0" prefWidth="190.0" style="-fx-text-fill: #B9CBC0;" textFill="#b9cbc0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="10.0" />
+                  <Label fx:id="totalPriceLabel" layoutX="251.0" layoutY="662.0" prefHeight="32.0" prefWidth="190.0" style="-fx-text-fill: #B9CBC0;" textFill="#b9cbc0" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="10.0" />
                   <Label layoutX="12.0" layoutY="678.0" prefHeight="32.0" prefWidth="183.0" style="-fx-text-fill: #B9CBC0;" text="Total Price" textFill="#b9cbc0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="12.0" />
-                  <JFXButton fx:id="checkoutButton" layoutX="13.0" layoutY="713.0" onAction="#checkout" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #357266; -fx-text-fill: #EEF9FB;" text="Checkout" textAlignment="CENTER" textFill="#a3bbad" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="13.0" />
+                  <JFXButton fx:id="checkoutButton" layoutX="13.0" layoutY="713.0" onAction="#checkout" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #357266; -fx-text-fill: #EEF9FB;" text="Checkout" textAlignment="CENTER" textFill="#a3bbad" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="12.0" />
+                  <JFXButton fx:id="clearReceipt" layoutX="338.0" layoutY="714.0" onAction="#clearReceipt" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #357266; -fx-text-fill: #EEF9FB;" text="Clear" textAlignment="CENTER" textFill="#a3bbad" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="12.0" />
+                  <JFXButton layoutX="357.0" layoutY="14.0" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" onAction="#exit" prefHeight="24.0" prefWidth="24.0" style="-fx-background-color: #ff0000;" text="X" textFill="#0e3b43" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></JFXButton>
           </children>
         </AnchorPane>
       </items>

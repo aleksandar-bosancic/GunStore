@@ -1,12 +1,25 @@
 package db.dto;
 
+import java.util.Objects;
+
 public class ReceiptHasItem {
     private Receipt receipt;
     private Item item;
     private int amount;
     private double itemPrice;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ReceiptHasItem that = (ReceiptHasItem) o;
+        return Objects.equals(receipt, that.receipt) && Objects.equals(item, that.item);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(receipt, item);
+    }
 
     public String getManufacturer() {
         return item.getManufacturer();

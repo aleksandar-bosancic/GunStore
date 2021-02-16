@@ -5,32 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23c5502b-6d78-4003-a429-e232f55487de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jfoenix_jfoenix_9_0_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/GunStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/UILoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/resources/dividerStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891/storage_v2/_src_/schema/gun_store_database.-OtUOA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891/storage_v2/_src_/schema/gun_store_database.-OtUOA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/database/example_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/example_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/database/gun_store_database.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/gun_store_database.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/database/gun_store_database.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/gun_store_database.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/database/gun_store_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/gun_store_database.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/database/stored_procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/stored_procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/database/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/FirearmPermitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/FirearmPermitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/EmployeeDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/EmployeeDAOMySql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPermitDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPermitDAOMySql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/ReceiptDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/ReceiptDAOMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/UILoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/UILoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/connection/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/connection/ConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/FirearmPistolDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/FirearmPistolDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPistolDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPistolDAOMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dto/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dto/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dto/ReceiptHasItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dto/ReceiptHasItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/resources/Login_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/Login_scene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/resources/Main_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/Main_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/dividerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/Login_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/Login_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/Main_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/Main_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/UILoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/UILoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/controllers/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/controllers/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/connection/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/connection/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/FirearmPistolDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/FirearmPistolDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/FirearmPistolDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/FirearmPistolDAOMySql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dto/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dto/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dto/ReceiptHasItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dto/ReceiptHasItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/dividerStyle.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,7 @@
       <list>
         <option value="Class" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -88,6 +91,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GunStore" />
@@ -109,6 +125,10 @@
       <workItem from="1613224541245" duration="6466000" />
       <workItem from="1613295934719" duration="17474000" />
       <workItem from="1613314807633" duration="2960000" />
+      <workItem from="1613324854993" duration="5575000" />
+      <workItem from="1613384563819" duration="12743000" />
+      <workItem from="1613417176741" duration="10873000" />
+      <workItem from="1613466472907" duration="7721000" />
     </task>
     <servers />
   </component>
@@ -126,5 +146,19 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPistolDAOMySql.java</url>
+          <line>67</line>
+          <properties class="db.dao.mysql.FirearmPistolDAOMySql" method="updateFirearmPistol">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

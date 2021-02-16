@@ -958,7 +958,7 @@ SELECT|sys.sys_config
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="313" parent="2" name="requires_permit">
-      <SourceTextLength>245</SourceTextLength>
+      <SourceTextLength>272</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1811,7 +1811,7 @@ item_id</ColNames>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>tinyint(1)|0s</DataType>
     </argument>
-    <argument id="487" parent="313" name="item_id">
+    <argument id="487" parent="313" name="selected_item_id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </argument>

@@ -1,5 +1,7 @@
 package db.dto;
 
+import java.util.Objects;
+
 public class Item {
     private int id;
     private String manufacturer;
@@ -45,5 +47,18 @@ public class Item {
 
     public void setIn_stock(int in_stock) {
         this.in_stock = in_stock;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id == item.id && Double.compare(item.price, price) == 0 && in_stock == item.in_stock && manufacturer.equals(item.manufacturer) && model.equals(item.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, manufacturer, model, price, in_stock);
     }
 }

@@ -43,14 +43,13 @@ BEGIN
 END$$
 DELIMITER ;
 
+
 DELIMITER $$
-CREATE PROCEDURE `requires_permit` (in item_id INT, out requires_permit BOOLEAN)
+CREATE PROCEDURE `requires_permit` (in selected_item_id INT, out requires_permit BOOLEAN)
 BEGIN
     SET requires_permit = FALSE;
-    IF item_id IN (SELECT item_id FROM munition) OR item_id IN (SELECT item_id FROM firearm_rifle) OR item_id IN (SELECT item_id FROM firearm_pistol) THEN
+    IF selected_item_id IN (SELECT item_id FROM munition) OR selected_item_id IN (SELECT item_id FROM firearm_rifle) OR selected_item_id IN (SELECT item_id FROM firearm_pistol) THEN
         SET requires_permit = TRUE;
     END IF;
 END$$
 DELIMITER ;
-
-
