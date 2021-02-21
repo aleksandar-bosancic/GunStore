@@ -45,11 +45,11 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return id == address.id && number == address.number && Objects.equals(city, address.city) && Objects.equals(street, address.street);
+        return number == address.number && Objects.equals(city, address.city) && Objects.equals(street, address.street);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, city, street, number);
+        return Objects.hash(city, street, number);
     }
 }

@@ -12,22 +12,28 @@ public class FirearmPermitDAOMySql implements FirearmPermitDAO {
 
     @Override
     public boolean checkFirearmPermit(int personId) throws SQLException{
+        boolean toReturn;
         String query = "{call check_firearm_permit(?, ?)}";
         Connection connection = ConnectionPool.getConnection();
         CallableStatement callableStatement = connection.prepareCall(query);
         callableStatement.setInt(1, personId);
         callableStatement.execute();
-        return callableStatement.getBoolean(2);
+        toReturn = callableStatement.getBoolean(2);
+        ConnectionPool.releaseConnection(connection);
+        return toReturn;
     }
 
     @Override
     public boolean requiresPermit(int itemId) throws SQLException{
+        boolean toReturn;
         String query = "{call requires_permit(?, ?)}";
         Connection connection = ConnectionPool.getConnection();
         CallableStatement callableStatement = connection.prepareCall(query);
         callableStatement.setInt(1, itemId);
         callableStatement.execute();
-        return callableStatement.getBoolean(2);
+        toReturn = callableStatement.getBoolean(2);
+        ConnectionPool.releaseConnection(connection);
+        return toReturn;
     }
 
     @Override

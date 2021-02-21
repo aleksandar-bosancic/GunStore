@@ -65,8 +65,8 @@ insert into accesories VALUES (10,"black", "Balistic Vest", "Armour"),
                               (17, "Desert Camo", "Bandana", "Headgear"),
                               (18, "Black", "Fire Starter", "Miscellaneous");
 
-select * from person;
-select * from `employee`;
-insert into person value (0, "Elon Musk", "Meme Lord");
-insert into buyer value (7,3);
-delete from address where id = 18;
+# select * from address;
+# select * from `employee`;
+# insert into person value (0, "Elon Musk", "Meme Lord");
+# insert into buyer value (7,3);
+# delete from address where id = 18;

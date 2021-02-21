@@ -5,24 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23c5502b-6d78-4003-a429-e232f55487de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/EmployeesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/resources/Employees_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891/storage_v2/_src_/schema/gun_store_database.-OtUOA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/71b57c67-8e25-4319-87cf-526f4fea7891/storage_v2/_src_/schema/gun_store_database.-OtUOA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/database/example_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Application/database/example_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/AddressDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/AddressDAOMySql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/PersonDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/PersonDAOMySql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/ReceiptDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/ReceiptDAOMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/controllers/EmployeesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/controllers/EmployeesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/EmployeeDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/EmployeeDAOMySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPermitDAOMySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dao/mysql/FirearmPermitDAOMySql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dto/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dto/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/db/dto/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/db/dto/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/Main_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/Main_scene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/Main_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/Main_scene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/AddressDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/AddressDAOMySql.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/PersonDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/PersonDAOMySql.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/ReceiptDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/ReceiptDAOMySql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/resources/Employees_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/resources/Employees_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/Employees_scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/Employees_scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/controllers/EmployeesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/controllers/EmployeesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/EmployeeDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/EmployeeDAOMySql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/FirearmPermitDAOMySql.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dao/mysql/FirearmPermitDAOMySql.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dto/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dto/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/target/classes/db/dto/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/Application/target/classes/db/dto/Employee.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +103,9 @@
       <workItem from="1613466472907" duration="22340000" />
       <workItem from="1613498028785" duration="2807000" />
       <workItem from="1613513327274" duration="4372000" />
+      <workItem from="1613552466883" duration="4907000" />
+      <workItem from="1613639029450" duration="1593000" />
+      <workItem from="1613732563439" duration="30000" />
     </task>
     <servers />
   </component>

@@ -10,13 +10,16 @@ import java.util.ArrayList;
 public class EmployeeDAOMySql implements EmployeeDAO {
     @Override
     public boolean login(String employeeUsername, String employeePassword)  throws SQLException{
+        boolean toReturn;
         String query = "{call login_procedure(?, ?, ?)}";
         Connection connection = ConnectionPool.getConnection();
         CallableStatement callableStatement = connection.prepareCall(query);
         callableStatement.setString(1, employeeUsername);
         callableStatement.setString(2, employeePassword);
         callableStatement.execute();
-        return callableStatement.getBoolean(3);
+        toReturn = callableStatement.getBoolean(3);
+        ConnectionPool.releaseConnection(connection);
+        return toReturn;
     }
 
     @Override

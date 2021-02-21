@@ -2,7 +2,6 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import db.dao.AddressDAO;
 import db.dao.mysql.AddressDAOMySql;
 import db.dao.mysql.EmployeeDAOMySql;
 import db.dao.mysql.PersonDAOMySql;
@@ -10,19 +9,18 @@ import db.dto.Address;
 import db.dto.Employee;
 import db.dto.Person;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class EmployeesController {
     private int employeeId;
@@ -38,6 +36,9 @@ public class EmployeesController {
 
     @FXML
     public JFXButton deleteButton;
+
+    @FXML
+    public JFXButton addEmployeeButton;
 
     @FXML
     public JFXTextField nameTextField;
@@ -88,12 +89,12 @@ public class EmployeesController {
             } else {
                 showDialog("Employee deleted", "Employee " + employee.getEmployeeUsername() + " successfully deleted.");
             }
-            resetUI();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
+        resetUI();
     }
-    //TODO dovrsi ovo!
+
     public void update(ActionEvent actionEvent) {
         if(checkTextFields()){
             employee.setEmployeeUsername(usernameTextField.getText());
@@ -106,9 +107,10 @@ public class EmployeesController {
                     employeeAddress = setAddressFromString(addressTextField.getText());
                     if(!employeeInDatabase.getAddress().equals(employeeAddress)){
                         addressDAOMySql.createAddress(employeeAddress);
+                        employee.setAddressId(employeeAddress.getId());
                     }
-
-
+                    employeeDAOMySql.updateEmployee(employee);
+                    showDialog("Update successful", "Employee " + employee.getEmployeeUsername() + " update successfully");
                 }
             } catch (SQLException sqlException){
                 sqlException.printStackTrace();
@@ -116,6 +118,7 @@ public class EmployeesController {
         } else {
             showDialog("Empty fields", "Please enter all required data.");
         }
+        resetUI();
     }
 
     public void add(ActionEvent actionEvent) {
@@ -160,6 +163,9 @@ public class EmployeesController {
 
     public void find(ActionEvent actionEvent) {
         if(!searchIdTextField.getText().equals("")){
+            nameTextField.setDisable(true);
+            lastNameTextField.setDisable(true);
+            addEmployeeButton.setDisable(true);
             employeeId = Integer.parseInt(searchIdTextField.getText());
             try {
                 employee = employeeDAOMySql.readEmployee(employeeId);
@@ -194,6 +200,9 @@ public class EmployeesController {
         Platform.runLater(()->{
             updateButton.setDisable(true);
             deleteButton.setDisable(true);
+            addEmployeeButton.setDisable(false);
+            nameTextField.setDisable(false);
+            lastNameTextField.setDisable(false);
             nameTextField.clear();
             lastNameTextField.clear();
             usernameTextField.clear();
@@ -214,6 +223,12 @@ public class EmployeesController {
 
     private String returnAddressString(Address address){
         return (address.getCity() + ", " + address.getStreet() + ", " + address.getNumber());
+    }
+
+    @FXML
+    void findActionKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            find(null);
     }
 
     public void exit(ActionEvent event) {
